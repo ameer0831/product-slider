@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/22eef0dda9.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Product Slider</h1>
+    <main>
+        <div class="slide-container">
+        <img src="images/LEFTARROW.png" height="100px" width="200px" alt="left" id="slide-left" class="arrow">
+        <section class="container" id="slider">
+            <div class="thumbnail">
+                <img src="images/shirt1.jfif" height="300" width="300" alt="">
+                <div class="product-details">
+                    <h2>Demo product</h2>
+                    <p><span>$39.99</span>$29.99</p>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="images/shirt2.jfif"  height="300" width="300" alt="">
+                <div class="product-details">
+                    <h2>Demo product</h2>
+                    <p><span>$39.99</span>$29.99</p>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="images/singlewt.jfif"  height="300" width="300" alt="">
+                <div class="product-details">
+                    <h2>Demo product</h2>
+                    <p><span>$39.99</span>$29.99</p>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="images/3wts.jfif"  height="300" width="300" alt="">
+                <div class="product-details">
+                    <h2>Demo product</h2>
+                    <p><span>$39.99</span>$29.99</p>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="images/gold1.jfif"  height="300" width="300" alt="">
+                <div class="product-details">
+                    <h2>Demo product</h2>
+                    <p><span>$39.99</span>$29.99</p>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="images/tshrt1.jfif"  height="300" width="300" alt="">
+                <div class="product-details">
+                    <h2>Demo product</h2>
+                    <p><span>$39.99</span>$29.99</p>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+            <div class="thumbnail">
+                <img src="images/goun1.jfif"  height="300" width="300" alt="">
+                <div class="product-details">
+                    <h2>Demo product</h2>
+                    <p><span>$39.99</span>$29.99</p>
+                    <a href="#">Add to Cart</a>
+                </div>
+            </div>
+
+
+
+
+
+        </section>
+        <img src="images/right ARROW.jfif" height="100px" width="200px" alt="left" id="slide-left" class="arrow">
+        </div>
+    </main>
+    <script>
+        let thumnails =document.getElementsByClassName("thumbnail");
+let slider = document.getElementById("slider");
+let buttonRight = document.getElementById("slider");
+let buttonLeft = document.getElementById("slider");
+
+buttonLeft.addEventListener("click", () =>{
+    slider.scrollLeft -=135;
+})
+buttonRight.addEventListener("click", () =>{
+    slider.scrollLeft +=135;
+})
+
+const maxScrollLeft =slider.scrollWidth -slider.clientWidth;
+
+
+function autoplay(){
+    if(slider.scrollLeft >(maxScrollLeft - 1)){
+        slider.scrollLeft -= 125;
+    }else{
+        slider.scrollLeft += 1;
+}
+}
+
+let play =setInterval(autoplay, 50);
+
+for (let i =0; i<thumnails.length;i++){
+    thumnails[i].addEventListener("mouseover",()=>{
+        clearInterval(play)
+    })
+    thumnails[i].addEventListener("mouseout",()=>{
+        return play = setInterval(autoplay,50);
+    })
+}
+    </script>
+</body>
+</html>
